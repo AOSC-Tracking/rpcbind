@@ -10,6 +10,16 @@ Requires=rpcbind.socket
 Wants=rpcbind.target
 
 [Service]
+ProtectSystem=full
+ProtectHome=true
+PrivateDevices=true
+ProtectHostname=true
+ProtectClock=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictRealtime=true
 Type=notify
 # distro can provide a drop-in adding EnvironmentFile=-/??? if needed.
 EnvironmentFile=-/etc/rpcbind.conf
