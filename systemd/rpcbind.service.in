@@ -12,6 +12,9 @@ Wants=rpcbind.target
 [Service]
 Type=notify
 # distro can provide a drop-in adding EnvironmentFile=-/??? if needed.
+EnvironmentFile=-/etc/rpcbind.conf
+EnvironmentFile=-/etc/default/rpcbind
+EnvironmentFile=-/etc/sysconfig/rpcbind
 ExecStart=@_sbindir@/rpcbind $RPCBIND_OPTIONS @warmstarts_opt@ -f
 
 [Install]
