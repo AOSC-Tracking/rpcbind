@@ -471,6 +471,8 @@ init_transport(struct netconfig *nconf)
 		nhostsbak = nhosts;
 		nhostsbak++;
 		hosts = realloc(hosts, nhostsbak * sizeof(char *));
+		if (hosts == NULL)
+			errx(1, "Out of memory");
 		if (nhostsbak == 1)
 			hosts[0] = "*";
 		else {
